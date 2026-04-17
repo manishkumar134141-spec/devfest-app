@@ -1,13 +1,20 @@
 const express = require('express');
+const path = require('path');
 const cors = require('cors'); 
 const app = express();
+
+// Serve your static files (like your images or external CSS if you have any)
+app.use(express.static(__dirname));
+
+// Tell the server to load index.html when someone visits the root URL ('/')
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
+
 const PORT = 5000;
 
 app.use(cors()); 
 app.use(express.json());
-
-// Add this line right here to serve your HTML/CSS/JS files:
-app.use(express.static(__dirname)); 
 
 // Check route
 app.get('/api/message', (req, res) => {
