@@ -13,7 +13,7 @@ A brief description of what this project does. (e.g., *A web application built f
 
 ## 🛠️ Tech Stack
 * **Frontend:** HTML, CSS (Sora & Space Mono fonts)
-* **Backend:** Node.js
+* **Backend:** Node.js , Express.js
 
 ## 💻 Getting Started
 
