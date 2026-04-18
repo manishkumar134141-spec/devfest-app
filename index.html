@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> 
+  <title>Review Shield</title>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
-<style>cf
+<style>
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{
   --bg:#0f0f13;--surface:#1a1a24;--border:#2a2a3a;--text:#f0f0f8;--sub:#888;
@@ -177,6 +178,64 @@ nav{
 .prod-platform{
   display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;
   background:var(--accent);color:var(--btn-text);margin-bottom:8px;
+}/* Button Hover Animation */
+button {
+    transition: all 0.3s ease; /* Isse movement ekdum smooth hogi */
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.02); /* Thoda upar aur bada hoga */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Niche shadow aayegi */
+    cursor: pointer;
+}
+
+button:active {
+    transform: translateY(1px); /* Click karne par button dabega */
+} 
+/* Search Input Glow */
+input {
+    transition: all 0.3s ease;
+}
+
+input:hover, input:focus {
+    transform: scale(1.01);
+    border-color: #007BFF; /* Tum apne theme ke hisaab se color badal sakte ho */
+    box-shadow: 0 0 12px rgba(0, 123, 255, 0.3); /* Mast blue glow */
+    outline: none;
+}
+/* Cards 3D Lift Effect */
+.result-card, .review-box {
+    transition: all 0.4s ease;
+    border-radius: 12px;
+}
+
+.result-card:hover, .review-box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+}
+/* 6 Boxes Ka 3D Lift Effect */
+.box {
+    transition: all 0.3s ease-in-out; /* Animation ko makhan banayega */
+    border-radius: 12px; /* Edges ko thoda smooth/gol karne ke liye */
+    background-color: white; /* Agar background pehle se hai toh isko hata sakte ho */
+}
+
+.box:hover {
+    transform: translateY(-8px) scale(1.02); /* Dabba 8px upar uthega aur halka sa bada hoga */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Niche ek mast 3D dark shadow aayegi */
+    border-color: #007BFF; /* Dabbbe ka border halka sa blue glow karega */
+    z-index: 10; /* Ye ensure karega ki uthne wala dabba sabse upar dikhe */
+}
+
+/* 🔥 YE RAHI NAYI PREMIUM HOVER CLASS IN 6 DABBON KE LIYE 🔥 */
+.ai-box {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+.ai-box:hover {
+    transform: translateY(-8px) scale(1.03) !important;
+    box-shadow: 0 12px 25px rgba(0, 123, 255, 0.25) !important;
+    border-color: rgba(0, 123, 255, 0.5) !important;
+    z-index: 5;
 }
 
 /* ========== RESULTS PAGE ========== */
@@ -341,7 +400,7 @@ body.amazon .nav-logo{color:#FF9900;}
         <span id="platform-indicator-text">Detected platform</span>
       </div>
       <div class="url-input-row">
-        <input class="url-input" id="url-input" type="text" placeholder="Paste product URL here… e.g. amazon.in/product/..." oninput="onUrlInput(this.value)" onkeypress="if(event.key === 'Enter' && !document.getElementById('analyze-btn').disabled) startAnalysis()"/>
+       <input class="url-input" id="url-input" type="text" placeholder="Paste product URL here… e.g. amazon.in/product/..." oninput="onUrlInput(this.value)" onkeypress="if(event.key === 'Enter' && !document.getElementById('analyze-btn').disabled) startAnalysis()"/>
         <button class="detect-btn" id="analyze-btn" onclick="startAnalysis()" disabled>Analyze →</button>
       </div>
       <div class="url-hint">✓ Works with Amazon, Flipkart, Meesho, Myntra, Snapdeal and more</div>
@@ -357,32 +416,32 @@ body.amazon .nav-logo{color:#FF9900;}
       <div class="chip" onclick="fillDemo('default')">🛍️ Ajio</div> </div>
 
     <div class="features-grid">
-      <div class="feature-card">
+      <div class="feature-card ai-box">
         <div class="feat-icon">🤖</div>
         <div class="feat-title">AI Language Analysis</div>
         <div class="feat-desc">NLP models detect unnatural phrasing, repetitive patterns & incentivized language</div>
       </div>
-      <div class="feature-card">
+      <div class="feature-card ai-box">
         <div class="feat-icon">👤</div>
         <div class="feat-title">Profile Verification</div>
         <div class="feat-desc">Checks reviewer history, account age, and rating distribution anomalies</div>
       </div>
-      <div class="feature-card">
+      <div class="feature-card ai-box">
         <div class="feat-icon">📅</div>
         <div class="feat-title">Timing Patterns</div>
         <div class="feat-desc">Identifies review bombing — sudden bursts of 5★ reviews in a short window</div>
       </div>
-      <div class="feature-card">
+      <div class="feature-card ai-box">
         <div class="feat-icon">🌐</div>
         <div class="feat-title">Cross-Platform Check</div>
         <div class="feat-desc">Compares reviews across Amazon, Flipkart and other platforms for same product</div>
       </div>
-      <div class="feature-card">
+      <div class="feature-card ai-box">
         <div class="feat-icon">⭐</div>
         <div class="feat-title">Sentiment Consistency Check</div>
         <div class="feat-desc">Checks if review emotion matches rating</div>
       </div>
-      <div class="feature-card">
+      <div class="feature-card ai-box">
         <div class="feat-icon">📊</div>
         <div class="feat-title">Reviewer Behavior Analytics</div>
         <div class="feat-desc">This analyzes the overall behavior of a reviewer across multiple reviews.</div>
@@ -731,7 +790,7 @@ function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
 
 async function generateResults(platform, url, productName) {
   try {
-    const resp = await fetch('/api/analyze', {
+   const resp = await fetch('http://localhost:5000/api/analyze', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ url: url }) 
