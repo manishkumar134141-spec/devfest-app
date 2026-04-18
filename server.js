@@ -4,9 +4,9 @@ const cors = require('cors');
 const app = express();
 
 // --- UPDATED CORS CONFIGURATION ---
-// This tells your backend to only accept requests from your live Vercel site
+// Temporarily allow all origins for testing
 app.use(cors({
-    origin: 'https://reviewshield-site.vercel.app' 
+    origin: '*' 
 }));
 
 // Allow parsing of JSON data
